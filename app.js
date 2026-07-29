@@ -22,12 +22,9 @@ const game = {
 //exercise 3
 
 game.difficulty = "Easy";
-pokemon.boolean/*
+
+/*
 Exercise 4
-1. Select a starter Pokémon from the `pokemon` array. Remember, a starter Pokémon's `starter` property is true.
-2. Add this Pokémon to the `game.party` array. Which array method will you use to add them?
-
-
 Solve Exercise 4 here:
 */
 const starter = pokemon.find(function(pokemon){
@@ -38,10 +35,6 @@ game.party.push(starter);
 
 /*
 Exercise 5
-1. Choose three more Pokémon from the `pokemon` array and add them to your party.
-2. Consider different attributes like 'type' or 'HP' for your selection. Which array method will you use to add them?
-
-
 Solve Exercise 5 here:
 */
 
@@ -53,19 +46,125 @@ game.party.push(filterpokemon[0],filterpokemon[1],filterpokemon[2]);
 
 /*
 Exercise 6
-1. Set the `completed` property to true for gyms with a difficulty below 3.
-2. Think about how you'd loop through the `gyms` array to check and update the `completed` property.
-
-
 Solve Exercise 6 here:
 */
 
 for(const gym of game.gyms){
     if(gym.difficulty < 3){
-        gym.completed === "true";
+        gym.completed = "true";
     }
 }
-console.log(game);
+
+/*
+Exercise 7
+Solve Exercise 7 here:
+*/
+
+game.party.splice(0,1,pokemon[1]);
+game.party.splice(3,4,pokemon[4]);
+game.party.splice(6,7,pokemon[7]);
+game.party.splice(24,25,pokemon[25]);
+
+console.log("exercise 7:" ,game.party);
+
+/*
+Exercise 8
+Solve Exercise 8 here: 
+*/
+
+for (const pokemon of game.party){
+    console.log("exercise 8:",pokemon.name);
+}
+
+/*
+Exercise 9
+Solve Exercise 9 here:
+*/ 
+
+for (const pokemon1 of pokemon){
+    if(pokemon1.starter === true){
+        console.log("exercise 9: ",pokemon1.name);
+    }
+}
+
+/*Exercise 10
+Solve exercise 10 here: 
+*/
+game.catchPokemon = function(pokemonObj){
+    game.party.push(pokemonObj);
+};
+console.log("exercise 10:", game.party)
+
+/*Exercise 11
+Solve exercise 11 here:
+*/
+game.catchPokemon = function(pokemonObj){
+    game.party.push(pokemonObj);
+
+ const pokeball = game.items.find(function(item){
+    return item.name === "pokeball";
+ });
+ pokeball.quantity -=1;
+};
+game.catchPokemon(pokemon[10]);
+
+console.log("Exercise 11:", game.items);
 
 
+/*
+Exercise 12
+Solve Exercise 12 here:
+*/
+
+for (const gym of game.gyms) {
+  if (gym.difficulty < 6) {
+    gym.completed = true;
+  }
+}
+
+console.log("Exercise 12:", game.gyms);
+
+/*
+Exercise 13
+*/
+game.gymStatus = function() {
+  const gymTally = {
+    completed: 0,
+    incomplete: 0
+  };
+
+  for (const gym of game.gyms) {
+    if (gym.completed === true) {
+      gymTally.completed++;
+    } else {
+      gymTally.incomplete++;
+    }
+  }
+
+  console.log("exercise1 13:",gymTally);
+};
+
+game.gymStatus();
+
+/*
+Exercise 14
+*/
+game.partyCount = function() {
+  return game.party.length;
+};
+
+console.log("Exercise 14:", game.partyCount());
+
+
+//Exercise 15
+for (const gym of game.gyms) {
+  if (gym.difficulty < 8) {
+    gym.completed = true;
+  }
+}
+
+console.log("Exercise 15:", game.gyms);
+
+//Exercise 16
+console.log("Exercise 16:", game);
 
